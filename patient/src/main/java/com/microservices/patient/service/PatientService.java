@@ -1,17 +1,45 @@
 package com.microservices.patient.service;
 
+import com.microservices.patient.mapper.PatientMapper;
+import com.microservices.patient.model.dto.patientdto.AddPatientDTO;
+import com.microservices.patient.model.dto.patientdto.PatientDto;
+import com.microservices.patient.model.dto.patientdto.UpdatePatientDTO;
+import com.microservices.patient.model.entity.Patient;
+import com.microservices.patient.repository.PatientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PatientService {
-    public List<String> patients = Arrays.asList("Mohamed","Said","Omar");
+    private PatientRepository patientRepository ;
+    private PatientMapper patientMapper;
+    @Autowired
+    PatientService(PatientRepository patientRepository, PatientMapper patientMapper){
+        this.patientRepository = patientRepository;
+        this.patientMapper = patientMapper;
+    }
+    public void savePatient(AddPatientDTO patientDTO){
+        Patient patient = patientMapper.addToEntity(patientDTO);
+       Patient newPatient = patientRepository.save(patient);
+       //return patientMapper.toDto(newPatient);
+    }
+    public PatientDto UpdatePatient(UpdatePatientDTO patientDTO){
+        Patient patient = patientMapper.updateToEntity(patientDTO);
+        Patient newPatient = patientRepository.save(patient);
+        return patientMapper.toDto(newPatient);
+    }
 
-    public String getPatientName(String patientName){
-        return patients.stream().filter(name -> name.equals(patientName))
-                .findAny().orElse("No Patient With This Name");
+    public void deletePatient(Long id){
+        patientRepository.deleteById(id);
+    }
+
+    public PatientDto getPatient(Long id){
+        Optional<Patient> patient = patientRepository.findById(id);
+        PatientDto patientDto = patientMapper.toDto(patient.get());
+        return patientDto;
 
     }
+
 }
