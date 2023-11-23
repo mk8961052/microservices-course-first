@@ -1,0 +1,30 @@
+server:
+  port: 7777
+spring:
+  application:
+    name: API-GATEWAY
+  boot:
+    admin:
+      client:
+        url: http://host.docker.internal:8888
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enable: true
+          lower-case-service-id: true
+  main:
+    web-application-type: reactive
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://host.docker.internal:8761/eureka
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    show-details: always
