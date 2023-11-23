@@ -1,0 +1,8 @@
+M:\studies\microservices-course-v1\5- microservices project\newProject\microservices-course\payment\src\main\java\com\microservices\payment\repository\PaymentRepository.java
+M:\studies\microservices-course-v1\5- microservices project\newProject\microservices-course\payment\src\main\java\com\microservices\payment\controller\PaymentController.java
+M:\studies\microservices-course-v1\5- microservices project\newProject\microservices-course\payment\src\main\java\com\microservices\payment\model\dto\PaymentDTO.java
+M:\studies\microservices-course-v1\5- microservices project\newProject\microservices-course\payment\src\main\java\com\microservices\payment\model\entity\Payment.java
+M:\studies\microservices-course-v1\5- microservices project\newProject\microservices-course\payment\src\main\java\com\microservices\payment\mapper\PaymentMapper.java
+M:\studies\microservices-course-v1\5- microservices project\newProject\microservices-course\payment\src\main\java\com\microservices\payment\service\PaymentService.java
+M:\studies\microservices-course-v1\5- microservices project\newProject\microservices-course\payment\src\main\java\com\microservices\payment\model\dto\AddPaymentDTO.java
+M:\studies\microservices-course-v1\5- microservices project\newProject\microservices-course\payment\src\main\java\com\microservices\payment\PaymentApplication.java
